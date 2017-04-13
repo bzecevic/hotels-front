@@ -1,0 +1,3 @@
+export default {
+  GET_HOTELS_SUCCESS: 'GET_HOTELS_SUCCESS'
+}
