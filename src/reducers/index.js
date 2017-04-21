@@ -11,6 +11,8 @@
 import { combineReducers } from 'redux';
 import hotels from './HotelReducer';
 
-const reducers = {hotels};
+const reducers = {
+  hotels
+};
 const combined = combineReducers(reducers);
 module.exports = combined;

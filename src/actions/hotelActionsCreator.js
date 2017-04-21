@@ -13,9 +13,14 @@ export function getAllHotels() {
   return dispatch => {
     request.req('GET', '/hotel_api/')
       .then(res => {
-        dispatch(getAllHotelsSuccess(res.data));
+        dispatch({
+          type: types.GET_HOTELS_SUCCESS,
+          payload: res.data
+        });
       }).catch(err => {
         console.log('ERROR', err);
     })
   }
 }
+
+

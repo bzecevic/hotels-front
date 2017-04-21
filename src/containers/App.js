@@ -28,9 +28,11 @@ class App extends Component {
           {' | '}
           <Link key={3} to={'/fav'}>Favorites</Link>
         </div>
+
         <div className="our-custom-content-wrapper">
           {this.props.children}
         </div>
+
       </div>
     )
   }
