@@ -11,7 +11,7 @@ function getAllHotelsSuccess(hotels) {
 
 export function getAllHotels() {
   return dispatch => {
-    request.req('GET', '/hotel_api/')
+    request.authReq('GET', '/hotel_api/')
       .then(res => {
         dispatch({
           type: types.GET_HOTELS_SUCCESS,

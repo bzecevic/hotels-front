@@ -13,18 +13,18 @@ import Login from './components/Login';
 
 const store = configureStore();
 
-function doSometing(nextState, replace) {
-  console.log('doing something...');
-  // let role = localStorage.getItem('r');
-  // let token = localStorage.getItem('auth');
-  // let run = localStorage.getItem('run');
-  // if (!token && (role == 0 || !role)) {
-  //   localStorage.removeItem('auth');
-  //   replace(`/administer/${run}/login`);
-  // } else if(role == 1) {
-  //   replace(`/rank/${run}/login`);
-  // }
-  console.log('doing something end.');
+
+function isAuth(nextState, replace) {
+  let token = localStorage.getItem('token');
+  if (!token) {
+    replace(`/login`);
+  }
+  return;
+}
+function auth(nextState, replace) {
+  if(localStorage.getItem('token')) {
+    replace('/dash');
+  }
   return;
 }
 
@@ -34,10 +34,10 @@ ReactDOM.render(
       <Router history={browserHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={DashboardPage}/>
-          <Route path="/dash" component={DashboardPage}/>
+          <Route path="/dash" component={DashboardPage} onEnter={isAuth}/>
           <Route path="/fav" component={FavoritesPage}/>
         </Route>
-        <Route path="/login" component={Login} onEnter={doSometing}/>
+        <Route path="/login" component={Login} onEnter={auth}/>
         <Route path="*" component={ErrorPage}/>
       </Router>
     </Provider>

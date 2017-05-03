@@ -10,8 +10,10 @@
 /* Populated by react-webpack-redux:reducer */
 import { combineReducers } from 'redux';
 import hotels from './HotelReducer';
+import user from './LoginReducer';
 
 const reducers = {
+  user,
   hotels
 };
 const combined = combineReducers(reducers);
